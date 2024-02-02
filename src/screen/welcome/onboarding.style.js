@@ -5,5 +5,13 @@ const st_onboar = StyleSheet.create({
         fontWeight: 'bold',
         color: COLORS.title,
         fontSize: SIZES.h1
+    },
+    content: {
+        textAlign: 'center',
+        paddingTop: 5,
+        color: COLORS.title,
+
     }
 })
+
+export { st_onboar}
