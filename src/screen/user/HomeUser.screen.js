@@ -98,7 +98,7 @@ export default function HomeUser_Screen({ navigation }) {
   const showItem = (key) => {
     const vt = dataItemHome.findIndex(item => item.id == key)
     if (vt != -1) {
-      navigation.navigate('product', dataItemHome[vt])
+      navigation.navigate('product', { data: dataItemHome[vt] })
     } else {
       Alert.alert(
         'Error',
@@ -143,10 +143,10 @@ export default function HomeUser_Screen({ navigation }) {
           showsVerticalScrollIndicator={false}
         >
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-            {dataItemHome.map((item) => {
+            {dataItemHome.map((item, i) => {
               return (
-                <TouchableOpacity style={{ width: '45%', marginVertical: 15 }} key={item.id} onPress={() => { showItem(item.id) }}>
-                  <Image source={item.img} style={{ width: '100%', borderRadius: 10 }} />
+                <TouchableOpacity style={{ width: '45%', marginVertical: 15, height: 260, backgroundColor: 'white', justifyContent: 'flex-end' }} key={item.id} onPress={() => { showItem(item.id) }}>
+                  <Image source={item.img[0]} style={{ width: '100%', borderRadius: 10, objectFit: 'contain', height: 210, backgroundColor: 'white', shadowColor: '#606060' }} />
                   <Text style={{ marginVertical: 5, color: '#606060' }}>{item.title}</Text>
                   <Text style={{ fontWeight: 'bold' }}>$ {item.price}</Text>
                 </TouchableOpacity>
