@@ -40,8 +40,8 @@ export default function HomeUser_Screen({ navigation }) {
     const { title, icon, iconFocused, id } = item;
     if (id == 1) {
       return (
-        <TouchableOpacity style={{ width: '70', height: '65', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
-          <View style={[{ width: '50', height: '50', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
+        <TouchableOpacity style={{ width: 70, height: 95, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} onPress={() => { setFocused(id) }} >
+          <View style={[{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
             {menuFocused == 1 ? <Iconify icon={'typcn:star'} size={40} color={'white'} /> : <Iconify icon={'system-uicons:star'} size={40} color={'#909090'} />}
           </View>
           <Text style={[{ textAlign: 'center', fontSize: SIZES.h5, fontWeight: '600', marginTop: 15, color: 'rgba(153, 153, 153, 1)' }, menuFocused == id ? st.colorUFC : st.colorFC]}>Popular</Text>
@@ -49,8 +49,8 @@ export default function HomeUser_Screen({ navigation }) {
       )
     } else if (id == 2) {
       return (
-        <TouchableOpacity style={{ width: '70', height: '65', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
-          <View style={[{ width: '50', height: '50', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
+        <TouchableOpacity style={{ width: 70, height: 95, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
+          <View style={[{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
             {menuFocused == 2 ? <Iconify icon={'ph:chair-fill'} size={40} color={'white'} /> : <Iconify icon={'ph:chair-light'} size={40} color={'#909090'} />}
           </View>
           <Text style={[{ textAlign: 'center', fontSize: SIZES.h5, fontWeight: '600', marginTop: 15, color: 'rgba(153, 153, 153, 1)' }, menuFocused == id ? st.colorUFC : st.colorFC]}>Chair</Text>
@@ -58,8 +58,8 @@ export default function HomeUser_Screen({ navigation }) {
       )
     } else if (id == 3) {
       return (
-        <TouchableOpacity style={{ width: '70', height: '65', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
-          <View style={[{ width: '50', height: '50', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
+        <TouchableOpacity style={{ width: 70, height: 95, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
+          <View style={[{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
             {menuFocused == 3 ? <Iconify icon={'mdi:table-furniture'} size={40} color={'white'} /> : <Iconify icon={'iconoir:home-table'} size={40} color={'#909090'} />}
           </View>
           <Text style={[{ textAlign: 'center', fontSize: SIZES.h5, fontWeight: '600', marginTop: 15, color: 'rgba(153, 153, 153, 1)' }, menuFocused == id ? st.colorUFC : st.colorFC]}>Table</Text>
@@ -67,8 +67,8 @@ export default function HomeUser_Screen({ navigation }) {
       )
     } else if (id == 4) {
       return (
-        <TouchableOpacity style={{ width: '70', height: '65', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
-          <View style={[{ width: '50', height: '50', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
+        <TouchableOpacity style={{ width: 70, height: 95, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
+          <View style={[{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
             {menuFocused == 4 ? <Iconify icon={'solar:armchair-2-bold-duotone'} size={40} color={'white'} /> : <Iconify icon={'solar:armchair-2-line-duotone'} size={40} color={'#909090'} />}
           </View>
           <Text style={[{ textAlign: 'center', fontSize: SIZES.h5, fontWeight: '600', marginTop: 15, color: 'rgba(153, 153, 153, 1)' }, menuFocused == id ? st.colorUFC : st.colorFC]}>Armchair</Text>
@@ -76,8 +76,8 @@ export default function HomeUser_Screen({ navigation }) {
       )
     } else if (id == 5) {
       return (
-        <TouchableOpacity style={{ width: '70', height: '65', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
-          <View style={[{ width: '50', height: '50', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
+        <TouchableOpacity style={{ width: 70, height: 95, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
+          <View style={[{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
             {menuFocused == 5 ? <Iconify icon={'ion:bed'} size={40} color={'white'} /> : <Iconify icon={'ion:bed-outline'} size={40} color={'#909090'} />}
           </View>
           <Text style={[{ textAlign: 'center', fontSize: SIZES.h5, fontWeight: '600', marginTop: 15, color: 'rgba(153, 153, 153, 1)' }, menuFocused == id ? st.colorUFC : st.colorFC]}>Bed</Text>
@@ -85,8 +85,8 @@ export default function HomeUser_Screen({ navigation }) {
       )
     } else if (id == 6) {
       return (
-        <TouchableOpacity style={{ width: '70', height: '65', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
-          <View style={[{ width: '50', height: '50', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
+        <TouchableOpacity style={{ width: 70, height: 95, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginEnd: 20 }} onPress={() => { setFocused(id) }} >
+          <View style={[{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F5F5', borderRadius: 12, padding: 10 }, menuFocused == id ? st.bgFocused : st.bgUnfocused]}>
             {menuFocused == 6 ? <Iconify icon={'mingcute:desk-lamp-2-fill'} size={40} color={'white'} /> : <Iconify icon={'mingcute:desk-lamp-2-line'} size={40} color={'#909090'} />}
           </View>
           <Text style={[{ textAlign: 'center', fontSize: SIZES.h5, fontWeight: '600', marginTop: 15, color: 'rgba(153, 153, 153, 1)' }, menuFocused == id ? st.colorUFC : st.colorFC]}>Lamb</Text>
@@ -137,7 +137,7 @@ export default function HomeUser_Screen({ navigation }) {
         />
       </View>
 
-      <View style={{ width: '100%', height: '70%', justifyContent: 'center', alignContent: 'space-between' }}>
+      <View style={{ width: '100%', height: '75%', justifyContent: 'center', alignContent: 'space-between' }}>
 
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -201,7 +201,7 @@ const st = StyleSheet.create({
 
   menu_container: {
     width: '100%',
-    height: '20%',
+    height: '15%',
     justifyContent: 'center',
     alignItems: 'center',
     // backgroundColor: '#f2f2f2'

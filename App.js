@@ -1,17 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import Navigation_app from './src/navigation';
+import { Favorite_context } from './src/context/Favorite.context';
+
 export default function App() {
   return (
-    <Navigation_app/>
+    <Favorite_context>
+      <Navigation_app />
+    </Favorite_context>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

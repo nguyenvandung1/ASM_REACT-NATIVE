@@ -2,11 +2,14 @@
 
 import { StyleSheet, Text, TouchableOpacity, View, shadow } from 'react-native'
 import React from 'react'
+import {Iconify} from 'react-native-iconify'
 
-export default function ButtonCustomer({ lable, w, onPress, h, mt, bg, color, shadow }) {
+export default function ButtonCustomer({ lable, w, onPress, h, mt, bg, color, shadow, setIcon, icon}) {
+  
   return (
     <TouchableOpacity style={[{ width: `${w}%`, height: `${h}%`, justifyContent: 'center', alignItems: 'center', marginTop: mt, backgroundColor: bg }, shadow ? st.btnWithShadow : st.btn]} onPress={onPress} >
-      <Text style={[st.lable, { color: color }]}>{lable}</Text>
+      {!setIcon && <Text style={[st.lable, { color: color }]}>{lable}</Text>}
+      {setIcon && icon}
     </TouchableOpacity>
   )
 }
