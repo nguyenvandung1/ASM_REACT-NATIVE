@@ -16,7 +16,7 @@ export default function ButtonCustomer({ lable, w, onPress, h, mt, bg, color, sh
 
 const st = StyleSheet.create({
   btn: {
-    borderRadius: '8',
+    borderRadius: 8,
   },
   lable: {
     fontSize: 16,

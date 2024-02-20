@@ -1,11 +1,10 @@
 import React from 'react'
-import { FavoriteUser_screen, HomeUser_Screen, SettingUser_screen } from '../screen/index.screen'
+import { FavoriteUser_screen, HomeUser_Screen, Profile_screen,  } from '../screen/index.screen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 // import Icon from 'react-native-vector-icons/Fontisto'
 import { Iconify } from 'react-native-iconify'
 import { StyleSheet, View, Text } from 'react-native'
 import { COLORS, SIZES } from '../constants/theme'
-
 import Home_navigation from "./Home.navigation";
 
 const Tab = createBottomTabNavigator();
@@ -37,7 +36,7 @@ export default function User_Navigation() {
                             {focused ? <Iconify icon={"iconamoon:bookmark-fill"} size={30} color={COLORS.royalBlue} /> : <Iconify icon={"iconamoon:bookmark-light"} size={30} color="rgba(153, 153, 153, 1)" />}
                         </View>
                     )
-                } else if (route.name === 'setting_user') {
+                } else if (route.name === 'profile_user') {
                     return (
                         <View style={[st.container]}>
                             {focused ? <Iconify icon={"mdi:user"} size={30} color={COLORS.royalBlue} /> : <Iconify icon={"mdi:user-outline"} size={30} color="rgba(153, 153, 153, 1)" />}
@@ -48,7 +47,7 @@ export default function User_Navigation() {
         })}>
             <Tab.Screen name='home_user' component={Home_navigation} />
             <Tab.Screen name='favorite_user' component={FavoriteUser_screen} />
-            <Tab.Screen name='setting_user' component={SettingUser_screen}/>
+            <Tab.Screen name='profile_user' component={Profile_screen}/>
         </Tab.Navigator>
     )
 }
