@@ -38,6 +38,9 @@ export default function Product_screen({ route, navigation }) {
   const deleteAndAddProduct = () => {
     if (favoriteProducts.length == 0) {
       const list = [product];
+      let myFavorite = {
+
+      }
       setFavoriteProducts([...list]);
     } else {
       const viTri = findProduct();
@@ -69,7 +72,15 @@ export default function Product_screen({ route, navigation }) {
 
 
 
-
+  const renderImg = (img)=>{
+    if(typeof img === 'string'){
+      return <Image source={{uri: img}} style={{ objectFit: 'cover', width: SIZES.width, height: 450}} />
+    } else{
+      return (
+        <Image source={img} style={{ objectFit: 'cover', width: SIZES.width, height: 450}} />
+      )
+    }
+  }
 
   return (
     <View style={{ flex: 1, }}>
@@ -82,7 +93,7 @@ export default function Product_screen({ route, navigation }) {
           renderItem={({ item }) => {
             return (
               <View style={{ width: SIZES.width, justifyContent: 'center', alignItems: 'center', backgroundColor: 'orange' }}>
-                <Image source={item} style={{ objectFit: 'cover', width: SIZES.width, height: 450 }} />
+                {renderImg(item)}
               </View>
             )
           }}

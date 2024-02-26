@@ -1,12 +1,12 @@
 import React from 'react'
-import { FavoriteUser_screen, HomeUser_Screen, Profile_screen,  } from '../screen/index.screen'
+import { FavoriteUser_screen, HomeUser_Screen,  } from '../screen/index.screen'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 // import Icon from 'react-native-vector-icons/Fontisto'
 import { Iconify } from 'react-native-iconify'
 import { StyleSheet, View, Text } from 'react-native'
 import { COLORS, SIZES } from '../constants/theme'
 import Home_navigation from "./Home.navigation";
-
+import UserProfile_navigation from './UserProfile.navigation'
 const Tab = createBottomTabNavigator();
 export default function User_Navigation() {
     const size = 30;
@@ -47,7 +47,7 @@ export default function User_Navigation() {
         })}>
             <Tab.Screen name='home_user' component={Home_navigation} />
             <Tab.Screen name='favorite_user' component={FavoriteUser_screen} />
-            <Tab.Screen name='profile_user' component={Profile_screen}/>
+            <Tab.Screen name='profile_user' component={UserProfile_navigation}/>
         </Tab.Navigator>
     )
 }

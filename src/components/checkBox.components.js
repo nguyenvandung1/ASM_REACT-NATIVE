@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { COLORS } from '../constants/theme'
 
-export default function CheckBox_Customer() {
+export default function CheckBox_Customer({check, setCheck}) {
 
-    const [check, setCheck] = useState(false)
+    
 
     return (
         <TouchableOpacity style={[st.check_container, check ? st.checkTrue: st.checkFalse]} onPress={()=>{setCheck(!check)}}>

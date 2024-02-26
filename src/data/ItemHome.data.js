@@ -36,7 +36,8 @@ const lImg4 = [
 
 
 const dataItemHome = [
-    {
+    {   
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 1,
         title: 'Black Simple Lamp',
         price: 12000,
@@ -46,6 +47,7 @@ const dataItemHome = [
         detail: 'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. '
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 2,
         title: 'Minimal Stand',
         price: 25000,
@@ -54,6 +56,7 @@ const dataItemHome = [
         detail: 'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ',
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 3,
         title: 'Coffee Chair',
         price: 20000,
@@ -63,6 +66,7 @@ const dataItemHome = [
         type: 'lamb'
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 4,
         title: 'Simple Desk',
         price: 50000,
@@ -72,6 +76,7 @@ const dataItemHome = [
         type: 'lamb'
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 5,
         title: 'Black Simple Lamp',
         price: 12000,
@@ -81,6 +86,7 @@ const dataItemHome = [
         type: 'lamb'
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 6,
         title: 'Minimal Stand',
         price: 25000,
@@ -90,6 +96,7 @@ const dataItemHome = [
         type: 'lamb'
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 7,
         title: 'Coffee Chair',
         price: 20000,
@@ -99,6 +106,7 @@ const dataItemHome = [
         type: 'lamb'
     },
     {
+        uid: '48O3JZY1ztcFuucKVCfMIQJPu1u1',
         id: 8,
         title: 'Simple Desk',
         price: 50000,

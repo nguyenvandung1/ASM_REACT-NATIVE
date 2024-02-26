@@ -4,13 +4,19 @@ import { COLORS, SIZES } from '../../constants/theme'
 import { Iconify } from 'react-native-iconify'
 import * as ImagePicker from 'expo-image-picker'
 import ButtonCustomer from '../../components/button.components'
-import { Dropdown } from 'react-native-element-dropdown'
+// import { Dropdown } from 'react-native-element-dropdown'
+import { SelectList } from 'react-native-dropdown-select-list'
+import { useProduct, useUserLogin } from '../../context/Favorite.context'
 
 
 export default function CreateItemUser_screen({ navigation }) {
+    const {userLogin, setUserLogin} = useUserLogin()
+    const { listProduct, setListProduct } = useProduct()
+
     const [image, setImage] = useState([]);
     const [focusCategory, setFocusCategory] = useState(false)
     const [category, setCategory] = useState('');
+    
 
     const handlePickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -19,8 +25,8 @@ export default function CreateItemUser_screen({ navigation }) {
 
         if (!result.canceled) {
             // setImage(result.uri);
-            console.log(result.uri);
-            setImage([...image, result.uri])
+            // console.log(result.uri);
+            setImage([...image,  result.uri])
             console.log(image);
 
         }
@@ -32,14 +38,39 @@ export default function CreateItemUser_screen({ navigation }) {
     };
 
     const listCategory = [
-        { value: '1', label: 'Mobiles' },
-        { value: '2', label: 'Appliances' },
-        { value: '3', label: 'Cameras' },
-        { value: '4', label: 'Computers' },
-        { value: '5', label: 'Vegetables' },
-        { value: '6', label: 'Diary Products' },
-        { value: '7', label: 'Drinks' },
+        { key: '1', value: 'Popular' },
+        { key: '2', value: 'Chair' },
+        { key: '3', value: 'Table' },
+        { key: '4', value: 'Armchair' },
+        { key: '5', value: 'Bed' },
+        { key: '6', value: 'Lamb' },
     ]
+
+    const [title, setTitle] = useState('');
+    const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('');
+
+    const addProduct = ()=>{
+        let id;
+        if(listProduct.length == 0){id = 0} else{ id = listProduct[listProduct.length-1].id+1}
+
+
+        
+        const productNew = {   
+            idUser: userLogin.id,
+            id: id,
+            title: title,
+            price: parseInt(price),
+            img: image,
+            quantity: 1,
+            type: category.value,
+            detail: 'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. '
+        }
+
+        setListProduct([...listProduct, productNew])
+        console.log(productNew);
+    }
+
     return (
         <View style={[st.container]}>
             <View style={[st.header]}>
@@ -53,13 +84,13 @@ export default function CreateItemUser_screen({ navigation }) {
                 <TouchableOpacity style={{ width: 90, height: 90, borderColor: '#909191', borderWidth: 1, borderStyle: 'dashed', justifyContent: 'center', alignItems: 'center', borderRadius: 8, marginEnd: 20 }} onPress={() => { handlePickImage() }}>
                     <Iconify icon='subway:add' color={'#DADADA'} size={25} />
                 </TouchableOpacity>
-                <View style={{ width: (SIZES.width * 0.9) - 110, height: 90, zIndex: 999 }}>
+                <View style={{ width: (SIZES.width * 0.9) - 110, height: 90, zIndex: 99 }}>
                     <ScrollView style={{ width: '100%', height: 90 }} horizontal={true}>
                         {
                             image.map((img, i) => {
                                 return (
-                                    <View style={{ width: 90, height: 90, marginEnd: 10 }} key={i}>
-                                        <Image source={{ uri: img }} style={{ width: '100%', height: 90, objectFit: 'cover', borderRadius: 8 }} />
+                                    <View style={{ width: 90, height: 90, marginEnd: 10, zIndex: 99 }} key={i} >
+                                        <Image source={{uri : img }} style={{ width: '100%', height: 90, objectFit: 'cover', borderRadius: 8 }} />
                                         <TouchableOpacity style={{ position: 'absolute', top: 0, right: 0, zIndex: 99 }} onPress={() => { deleteIMG(i) }}>
                                             <Iconify icon='clarity:remove-solid' color={'black'} size={25} />
                                         </TouchableOpacity>
@@ -75,48 +106,40 @@ export default function CreateItemUser_screen({ navigation }) {
                 <View style={{ width: '100%', height: 85, justifyContent: 'space-between' }}>
                     <Text style={{ fontSize: SIZES.h5, color: COLORS.royalBlue, fontWeight: '600' }}>Title</Text>
                     <View style={{ width: '100%', height: 59, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1, justifyContent: 'center', paddingHorizontal: 10 }}>
-                        <TextInput placeholder='Listing Title' />
+                        <TextInput placeholder='Listing Title' value={title} onChangeText={setTitle}/>
                     </View>
                 </View>
 
                 <View style={{ width: '100%', height: 85, justifyContent: 'space-between', zIndex: 99 }}>
                     <Text style={{ fontSize: SIZES.h5, color: COLORS.royalBlue, fontWeight: '600' }}>Category</Text>
-                    {/* <SelectList data={category} boxStyles={{ width: '100%', height: 59, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1 }} dropdownStyles={{ backgroundColor: 'white' }} placeholder='Select the category' dropdownItemStyles={{ backgroundColor: 'black' }} /> */}
-                    {/* <View style={{ width: '100%', height: 59, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 10 }}> */}
 
-                    <Dropdown data={listCategory}
-                        placeholder='Select the category'
-                        iconStyle={{ width: 20, height: 20, }} 
-                        containerStyle={{width: '50%'}}
-                        itemContainerStyle={{}}
-                        style={{ width: '100%', height: 59, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1, paddingHorizontal: 10 }}
-                        onFocus={() => { setFocusCategory(true) }}
-                        onBlur={() => { setFocusCategory(false) }}
-                        value={category}
-                        onChange={item => {
-                            setCategory(item.value);
-                            setFocusCategory(false);
-                        }}
-                        placeholderStyle={{ color: '#C5C5C5' }}
-                        itemTextStyle={{ fontSize: 14, color: 'black' }}
+
+                    <SelectList
+                        setSelected={(val) => setCategory(val)}
+                        data={listCategory}
+                        // save={value}
+                        dropdownStyles={{ backgroundColor: 'white' }}
+                        boxStyles={{ width: '100%', height: 59, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1, paddingHorizontal: 10, alignItems: 'center' }}
+                        placeholder='Select category'
+
                     />
                 </View>
 
                 <View style={{ width: '100%', height: 85, justifyContent: 'space-between' }}>
                     <Text style={{ fontSize: SIZES.h5, color: COLORS.royalBlue, fontWeight: '600' }}>Price</Text>
                     <View style={{ width: '100%', height: 59, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1, justifyContent: 'center', paddingHorizontal: 10 }}>
-                        <TextInput placeholder='Enter price in USD' />
+                        <TextInput placeholder='Enter price in USD' keyboardType='number-pad' value={price} onChangeText={setPrice}/>
                     </View>
                 </View>
 
                 <View style={{ width: '100%', height: 162, justifyContent: 'space-between' }}>
                     <Text style={{ fontSize: SIZES.h5, color: COLORS.royalBlue, fontWeight: '600' }}>Description</Text>
                     <View style={{ width: '100%', height: 136, borderColor: '#8D9BB5', borderRadius: 14, borderWidth: 1, paddingHorizontal: 10 }}>
-                        <TextInput placeholder='Tell us more...' style={{ width: '100%', height: '100%' }} />
+                        <TextInput placeholder='Tell us more...' style={{ width: '100%', height: '100%' }} value={description} onChangeText={setDescription}/>
                     </View>
                 </View>
 
-                <ButtonCustomer w={100} h={10} bg={COLORS.royalBlue} lable={'Submit'} color={'white'} />
+                <ButtonCustomer w={100} h={10} bg={COLORS.royalBlue} lable={'Submit'} color={'white'} onPress={()=>{addProduct()}} />
 
 
 

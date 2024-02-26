@@ -1,22 +1,76 @@
 
 
 import React, { createContext, useContext, useState } from 'react'
+import { dataItemHome } from '../data/index.data';
 
+// favorite context
 const FavoriteContex = createContext();
 export const useFavoriteProducts = () => {
     return useContext(FavoriteContex)
 }
 
+// auth
+const AuthContext = createContext();
+export const useAuth = () => {
+    return useContext(AuthContext)
+}
+
+// product 
+const ProductContext = createContext();
+export const useProduct = () => {
+    return useContext(ProductContext);
+}
+
+// user
+const UserLoginContext = createContext();
+export const useUserLogin = () => {
+    return useContext(UserLoginContext);
+}
+
+
+
 const Favorite_context = ({ children }) => {
-    const [favoriteProducts, setFavoriteProducts] = useState([]);
+    const [favoriteProducts, setFavoriteProducts] = useState([
+        // {
+        //     id: 0,
+        //     idUser: 0,
+        //     list: []
+        // }
+    ]);
+    const [listAccount, setListAccount] = useState([
+        {
+            id: 0,
+            name: 'Nguyễn Văn Dũng',
+            mail: 'dung@1.com',
+            pass: 12345678
+        }
+    ])
+
+    // list product
+    const [listProduct, setListProduct] = useState(dataItemHome)
+
+    // userLogin
+    const [userLogin, setUserLogin] = useState()
     return (
-        <FavoriteContex.Provider
-            value={{ favoriteProducts, setFavoriteProducts }}
+        <ProductContext.Provider
+            value={{ listProduct, setListProduct }}
         >
-            {children}
-        </FavoriteContex.Provider>
+            <AuthContext.Provider
+                value={{ listAccount, setListAccount }}
+            >
+                <UserLoginContext.Provider
+                    value={{userLogin, setUserLogin}}
+                >
+                    <FavoriteContex.Provider
+                        value={{ favoriteProducts, setFavoriteProducts }}
+                    >
+                        {children}
+                    </FavoriteContex.Provider>
+                </UserLoginContext.Provider>
+            </AuthContext.Provider>
+        </ProductContext.Provider>
     )
 }
 
-export {Favorite_context}
+export { Favorite_context }
 

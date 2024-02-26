@@ -24,7 +24,7 @@ export default function Profile_screen({navigation}) {
         </View>
 
         <View style={{ width: '100%', height: '35%', marginTop: '10%', justifyContent: 'space-around' }}>
-          <TouchableOpacity style={[st.item, st.shadow]}>
+          <TouchableOpacity style={[st.item, st.shadow]} onPress={()=>{navigation.navigate('myListting')}}>
             <View>
               <Text style={[st.titleIitems]}>
                 My Listings
