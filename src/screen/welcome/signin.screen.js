@@ -38,6 +38,10 @@ export default function Signin_screen({ navigation }) {
         id: uid
       })
       navigation.navigate('user');
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'user' }], // Đặt màn hình chính là màn hình sau khi đăng nhập
+      });
     } catch (error) {
       console.log("Lỗi: "+error);
       Alert.alert('Lỗi đăng nhập!', 'Vui lòng kiểm tra lại tài khoản hoặc mật khẩu!', [
@@ -55,11 +59,15 @@ export default function Signin_screen({ navigation }) {
 
   }
 
+  const forgot = ()=>{
+    navigation.navigate('forgot')
+  }
+
 
   return (
     <View style={[st_signin.container]}>
       <View style={[{ width: '80%', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }]}>
-        <TouchableOpacity style={[{ marginEnd: 5 }]} onPress={() => { navigation.goBack() }}>
+        <TouchableOpacity style={[{ marginEnd: 5 }]} onPress={() => { navigation.navigate('splash') }}>
           <Icon name='arrow-back-outline' color={'#4F63AC'} size={24} />
         </TouchableOpacity>
         <Text style={[st_signin.title]}>Sign In</Text>
@@ -67,7 +75,7 @@ export default function Signin_screen({ navigation }) {
       <View style={{ width: '100%', justifyContent: 'space-between', alignItems: 'center', height: '70%', marginTop: 50 }}>
         <View style={[{ width: '80%' }]}>
           <InputLogin type={'text'} nameIcon={'at'} placeholder={'example@gmail.com'} validation={errMail} err={errMailTxt} value={ipMail} onChangeText={(value) => { setMail(value); setErrMail(false) }} />
-          <InputLogin type={'pass'} placeholder={'Pass word'} forgot={true} validation={errPass} err={errPassTxt} value={ipPass} onChangeText={(value) => { setPass(value); setErrPass(false) }} />
+          <InputLogin type={'pass'} navigation={navigation} placeholder={'Pass word'} forgot={true} validation={errPass} err={errPassTxt} value={ipPass} onChangeText={(value) => { setPass(value); setErrPass(false) }} />
         </View>
 
 

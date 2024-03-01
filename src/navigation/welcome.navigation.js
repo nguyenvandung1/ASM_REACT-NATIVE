@@ -1,7 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from "@react-navigation/stack"
-import { Onboarding_screen, Signup_screen, Signin_screen, Splashscreen } from "../screen/index.screen"
-
+import { Onboarding_screen, Signup_screen, Signin_screen, Splashscreen, ForgotPass_screen } from "../screen/index.screen"
 const stack = createStackNavigator();
 
 export default function Welcome_navigation() {
@@ -11,6 +10,7 @@ export default function Welcome_navigation() {
       <stack.Screen name='splash' component={Splashscreen}/>
       <stack.Screen name='singup' component={Signup_screen} />
       <stack.Screen name='singin' component={Signin_screen} />
+      <stack.Screen name='forgot' component={ForgotPass_screen}/>
     </stack.Navigator>
   )
 }

@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from 'react'
 import { dataItemHome } from '../data/index.data';
+import { getListProduct } from '../../db/script/API_APP';
 
 // favorite context
 const FavoriteContex = createContext();
@@ -47,7 +48,10 @@ const Favorite_context = ({ children }) => {
     ])
 
     // list product
-    const [listProduct, setListProduct] = useState(dataItemHome)
+    // const getData = async () => {
+    //     return await getListProduct();
+    // }
+    const [listProduct, setListProduct] = useState([]);
 
     // userLogin
     const [userLogin, setUserLogin] = useState()
@@ -59,7 +63,7 @@ const Favorite_context = ({ children }) => {
                 value={{ listAccount, setListAccount }}
             >
                 <UserLoginContext.Provider
-                    value={{userLogin, setUserLogin}}
+                    value={{ userLogin, setUserLogin }}
                 >
                     <FavoriteContex.Provider
                         value={{ favoriteProducts, setFavoriteProducts }}

@@ -2,9 +2,10 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export default function InputLogin({ type, nameIcon, placeholder, onChangeText, value, forgot, validation, err }) {
+export default function InputLogin({ type, nameIcon, placeholder, onChangeText, value, forgot, validation, err, navigation }) {
 
     const [showText, setShowText] = useState(true);
+    
 
     if (type == 'pass') {
         return (
@@ -14,7 +15,7 @@ export default function InputLogin({ type, nameIcon, placeholder, onChangeText, 
                         <Icon name={showText ? 'eye' : 'eye-slash'} size={24} color={'#b3b3b3'} />
                     </TouchableOpacity>
                     <TextInput secureTextEntry={showText} value={value} onChangeText={onChangeText} placeholder={placeholder} style={[{ marginStart: 10, width: '70%' }]} />
-                    {forgot && <TouchableOpacity><Text>Forgot</Text></TouchableOpacity>}
+                    {forgot && <TouchableOpacity onPress={()=>navigation.navigate('forgot')}><Text>Forgot</Text></TouchableOpacity>}
                 </View>
                 {validation && (
                     <View>
@@ -28,8 +29,8 @@ export default function InputLogin({ type, nameIcon, placeholder, onChangeText, 
         return (
             <View style={{ width: '100%', marginVertical: 25,  }}>
                 <View style={[{ width: '100%', borderBottomWidth: 1, paddingVertical: 5, flexDirection: 'row', marginBottom: 5 }, validation ? st.validation : st.validationOf]}>
-                    <Icon name={nameIcon} size={24} color={'#b3b3b3'} />
-                    <TextInput value={value} onChangeText={onChangeText} placeholder={placeholder} style={[{ marginStart: 10, width: '70%' }]} />
+                    <Icon name={nameIcon} size={24} color={validation? 'red': '#b3b3b3'} />
+                    <TextInput value={value} onChangeText={onChangeText} placeholder={placeholder} placeholderTextColor={validation? 'red' : Platform.OS === 'ios' ? '#7F7F7F' : '#BDBDBD'} style={[{ marginStart: 10, width: '70%' }]} />
                 </View>
                 {validation && (
                     <View>
@@ -50,7 +51,7 @@ export default function InputLogin({ type, nameIcon, placeholder, onChangeText, 
                         <Text style={{ color: 'red' }}>{err}</Text>
                     </View>
                 )}
-            </View >
+            </View>
         )
     } else {
         return (

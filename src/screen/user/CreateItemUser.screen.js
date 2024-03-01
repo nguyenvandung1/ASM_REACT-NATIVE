@@ -7,6 +7,7 @@ import ButtonCustomer from '../../components/button.components'
 // import { Dropdown } from 'react-native-element-dropdown'
 import { SelectList } from 'react-native-dropdown-select-list'
 import { useProduct, useUserLogin } from '../../context/Favorite.context'
+import { addProduct } from '../../../db/script/API_APP'
 
 
 export default function CreateItemUser_screen({ navigation }) {
@@ -50,15 +51,12 @@ export default function CreateItemUser_screen({ navigation }) {
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
 
-    const addProduct = ()=>{
+    const add = async ()=>{ 
         let id;
         if(listProduct.length == 0){id = 0} else{ id = listProduct[listProduct.length-1].id+1}
-
-
         
         const productNew = {   
-            idUser: userLogin.id,
-            id: id,
+            uid: userLogin.id,
             title: title,
             price: parseInt(price),
             img: image,
@@ -67,8 +65,17 @@ export default function CreateItemUser_screen({ navigation }) {
             detail: 'Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. '
         }
 
-        setListProduct([...listProduct, productNew])
-        console.log(productNew);
+        try {
+            const response = await addProduct(productNew);
+            setListProduct([...listProduct, response]);
+            console.log("add");
+            console.log(response);
+        } catch (error) {
+            console.log("Lỗi add"+error);
+        }
+        
+
+        // console.log(productNew);
     }
 
     return (
@@ -139,7 +146,7 @@ export default function CreateItemUser_screen({ navigation }) {
                     </View>
                 </View>
 
-                <ButtonCustomer w={100} h={10} bg={COLORS.royalBlue} lable={'Submit'} color={'white'} onPress={()=>{addProduct()}} />
+                <ButtonCustomer w={100} h={10} bg={COLORS.royalBlue} lable={'Submit'} color={'white'} onPress={()=>{add()}} />
 
 
 

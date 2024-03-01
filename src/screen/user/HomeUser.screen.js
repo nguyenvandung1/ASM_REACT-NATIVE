@@ -1,19 +1,33 @@
-import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, Alert } from 'react-native'
-import React, { useState } from 'react'
+import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, Alert, Platform } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { Header_components } from '../../components'
 import { COLORS, SIZES } from '../../constants/theme'
 import { Iconify } from 'react-native-iconify'
 // import Icon from 'react-native-vector-icons/Fontisto'
-
 import { menuData } from '../../data/index.data'
 import { dataItemHome } from '../../data/ItemHome.data'
 import { useProduct } from '../../context/Favorite.context'
-
+import { getDetailProduct, getListProduct } from '../../../db/script/API_APP'
 
 
 export default function HomeUser_Screen({ navigation }) {
-  const {listProduct, setListProduct} = useProduct()
+  
+  const { listProduct, setListProduct } = useProduct()
   const [showSearch, setShowSearch] = useState(false)
+
+  useEffect(() => {
+    const getList = async () => {
+      try {
+        const response = await getListProduct();
+        setListProduct([...response]);
+        console.log(listProduct[0].img[0]);
+      } catch (error) {
+        console.log("lỗi: " + error);
+      }
+    };
+    getList();
+  }, []); // Empty dependency array ensures this effect runs only once after initial render
+
   const renderSearch = () => {
     if (showSearch) {
       return (
@@ -98,7 +112,7 @@ export default function HomeUser_Screen({ navigation }) {
   const showItem = (key) => {
     const vt = listProduct.findIndex(item => item.id == key)
     if (vt != -1) {
-      navigation.navigate('product', { data: listProduct[vt] })
+      navigation.navigate('product', { data: listProduct[vt] });
     } else {
       Alert.alert(
         'Error',
@@ -112,8 +126,16 @@ export default function HomeUser_Screen({ navigation }) {
     }
   }
 
+  const renderItem = (item) => {
+    return (
+      <TouchableOpacity style={{ width: '45%', marginVertical: 15, height: 260, backgroundColor: 'white', justifyContent: 'flex-end' }} key={item.id} onPress={() => { showItem(item.id) }}>
+        {renderImg(item.img[0])}
+        <Text style={{ marginVertical: 5, color: '#606060' }}>{item.title}</Text>
+        <Text style={{ fontWeight: 'bold' }}>$ {item.price}</Text>
+      </TouchableOpacity>
+    )
+  }
 
-  
 
 
   return (
@@ -144,13 +166,19 @@ export default function HomeUser_Screen({ navigation }) {
         >
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
             {listProduct.map((item, i) => {
-              return (
-                <TouchableOpacity style={{ width: '45%', marginVertical: 15, height: 260, backgroundColor: 'white', justifyContent: 'flex-end' }} key={item.id} onPress={() => { showItem(item.id) }}>
-                  {renderImg(item.img[0])}
-                  <Text style={{ marginVertical: 5, color: '#606060' }}>{item.title}</Text>
-                  <Text style={{ fontWeight: 'bold' }}>$ {item.price}</Text>
-                </TouchableOpacity>
-              )
+              if (menuFocused == 1) {
+                return renderItem(item)
+              } else if (menuFocused == 2 && item.type == 'chair') {
+                return renderItem(item)
+              } else if(menuFocused == 3 && item.type == 'table'){
+                return renderItem(item)
+              } else if(menuFocused == 4 && item.type == 'armchair'){
+                return renderItem(item)
+              } else if(menuFocused == 5 && item.type == 'bed'){
+                return renderItem(item)
+              } else if(menuFocused == 6 && item.type == 'lamb'){
+                return renderItem(item)
+              }
             })}
           </View>
         </ScrollView>
@@ -206,12 +234,19 @@ const st = StyleSheet.create({
     alignItems: 'center',
     // backgroundColor: '#f2f2f2'
   },
-});const renderImg = (img)=>{
-    if(typeof img === 'string'){
-      return <Image source={{uri: img}} style={{ width: '100%', borderRadius: 10, objectFit: 'contain', height: 210, backgroundColor: 'white', shadowColor: '#606060' }} />
-    } else{
-      return (
-        <Image source={img} style={{ width: '100%', borderRadius: 10, objectFit: 'contain', height: 210, backgroundColor: 'white', shadowColor: '#606060' }} />
-      )
-    }
+});
+
+
+
+const renderImg = (img) => {
+  if (img.type === 'static') {
+    // const linkImg = require(img.path);
+    // console.log(linkImg);
+    return <Image source={{ img }} style={{ width: '100%', borderRadius: 10, objectFit: 'contain', height: 210, backgroundColor: 'white', shadowColor: '#606060' }} />
+  } else {
+    return (
+      <Image source={{ uri: img }} style={{ width: '100%', borderRadius: 10, objectFit: 'contain', height: 210, backgroundColor: 'white', shadowColor: '#606060' }} />
+    )
   }
+}
+

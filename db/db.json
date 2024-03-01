@@ -1,205 +1,144 @@
 {
-    "products": [
-        {   "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 1,
-            "title": "Sản phẩm 1",
-            "price": 10,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 1"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 2,
-            "title": "Sản phẩm 2",
-            "price": 20,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 2"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 3,
-            "title": "Sản phẩm 3",
-            "price": 15,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 3"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 4,
-            "title": "Sản phẩm 4",
-            "price": 25,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 4"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 5,
-            "title": "Sản phẩm 5",
-            "price": 30,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 5"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 6,
-            "title": "Sản phẩm 6",
-            "price": 22,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 6"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 7,
-            "title": "Sản phẩm 7",
-            "price": 18,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 7"
-        },
-        {
-            "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "id": 8,
-            "title": "Sản phẩm 8",
-            "price": 35,
-            "img": [
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                },
-                {
-                    "path": "../../assets/img_home/lamp/1.png",
-                    "type": "static"
-                }
-            ],
-            "detail": "Chi tiết về sản phẩm 8"
-        }
-    ],
-    "favorites": [
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 1
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 3
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 5
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 2
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 4
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 6
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 1
-        },
-        {
-            "uid": "8O3JZY1ztcFuucKVCfMIQJPu1u1",
-            "idProduct": 7
-        }
-    ]
+  "products": [
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "1",
+      "title": "Black Simple Lamp",
+      "price": 10,
+      "img": [
+        "https://i.postimg.cc/GB5bmWt2/item1.png",
+        "https://i.postimg.cc/BXSZNcrJ/2.png",
+        "https://i.postimg.cc/Hj4sQPPS/1.png",
+        "https://i.postimg.cc/zfwSyJjW/3.png",
+        "https://i.postimg.cc/gj16M5sm/4.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 1",
+      "type": "lamb"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "2",
+      "title": "Minimal Stand",
+      "price": 20,
+      "img": [
+        "https://i.postimg.cc/3rjRzkw2/item2.png",
+        "https://i.postimg.cc/MK4hDD85/8.png",
+        "https://i.postimg.cc/fT6rXRxg/7.png",
+        "https://i.postimg.cc/8s8mFsqR/6.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 2",
+      "type": "table"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "3",
+      "title": "Coffee Chair",
+      "price": 15,
+      "img": [
+        "https://i.postimg.cc/WbP9bHjQ/item3.png",
+        "https://i.postimg.cc/W3gMBsDt/10.png",
+        "https://i.postimg.cc/m2JgHCpf/13.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 3",
+      "type": "chair"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "4",
+      "title": "Simple Desk",
+      "price": 25,
+      "img": [
+        "https://i.postimg.cc/mD2j3NMD/6.png",
+        "https://i.postimg.cc/bdX15QG1/5.png",
+        "https://i.postimg.cc/c4mQh8xt/7.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 4",
+      "type": "table"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "5",
+      "title": "Black Simple Lamp",
+      "price": 10,
+      "img": [
+        "https://i.postimg.cc/GB5bmWt2/item1.png",
+        "https://i.postimg.cc/BXSZNcrJ/2.png",
+        "https://i.postimg.cc/Hj4sQPPS/1.png",
+        "https://i.postimg.cc/zfwSyJjW/3.png",
+        "https://i.postimg.cc/gj16M5sm/4.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 1",
+      "type": "lamb"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "6",
+      "title": "Minimal Stand",
+      "price": 20,
+      "img": [
+        "https://i.postimg.cc/3rjRzkw2/item2.png",
+        "https://i.postimg.cc/MK4hDD85/8.png",
+        "https://i.postimg.cc/fT6rXRxg/7.png",
+        "https://i.postimg.cc/8s8mFsqR/6.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 2",
+      "type": "table"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "id": "8",
+      "title": "Simple Desk",
+      "price": 25,
+      "img": [
+        "https://i.postimg.cc/mD2j3NMD/6.png",
+        "https://i.postimg.cc/bdX15QG1/5.png",
+        "https://i.postimg.cc/c4mQh8xt/7.png"
+      ],
+      "detail": "Chi tiết về sản phẩm 4",
+      "type": "table"
+    },
+    {
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1",
+      "title": "Chair fake",
+      "price": 26,
+      "img": [
+        "file:///var/mobile/Containers/Data/Application/3CDD285B-7692-4E27-B52C-554DB11F54CD/Library/Caches/ExponentExperienceData/@anonymous/ASM_REACT-NATIVE-0f0abfcb-71ff-4a7a-a3c4-5e08a66d06c7/ImagePicker/B77E5D85-251D-4D04-8D53-5EC1EF9CB889.png",
+        "file:///var/mobile/Containers/Data/Application/3CDD285B-7692-4E27-B52C-554DB11F54CD/Library/Caches/ExponentExperienceData/@anonymous/ASM_REACT-NATIVE-0f0abfcb-71ff-4a7a-a3c4-5e08a66d06c7/ImagePicker/E53E9AF9-6F12-45BF-A08A-9F4160CBC635.png",
+        "file:///var/mobile/Containers/Data/Application/3CDD285B-7692-4E27-B52C-554DB11F54CD/Library/Caches/ExponentExperienceData/@anonymous/ASM_REACT-NATIVE-0f0abfcb-71ff-4a7a-a3c4-5e08a66d06c7/ImagePicker/5C767A07-161D-4287-8330-0156D668BB71.jpg",
+        "file:///var/mobile/Containers/Data/Application/3CDD285B-7692-4E27-B52C-554DB11F54CD/Library/Caches/ExponentExperienceData/@anonymous/ASM_REACT-NATIVE-0f0abfcb-71ff-4a7a-a3c4-5e08a66d06c7/ImagePicker/843AB944-6FF0-4949-A725-4BFCF291F43A.png",
+        "file:///var/mobile/Containers/Data/Application/3CDD285B-7692-4E27-B52C-554DB11F54CD/Library/Caches/ExponentExperienceData/@anonymous/ASM_REACT-NATIVE-0f0abfcb-71ff-4a7a-a3c4-5e08a66d06c7/ImagePicker/9A09FC2F-FBD2-443F-8600-B8006743B94C.png"
+      ],
+      "quantity": 1,
+      "detail": "Minimal Stand is made of by natural wood. The design that is very simple and minimal. This is truly one of the best furnitures in any family for now. With 3 different colors, you can easily select the best match for your home. ",
+      "id": "d457",
+      "type": "chair"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "84b9",
+      "idProduct": "3",
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1"
+    },
+    {
+      "id": "e88f",
+      "idProduct": "2",
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1"
+    },
+    {
+      "id": "4ca5",
+      "idProduct": "2",
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1"
+    },
+    {
+      "id": "7d1e",
+      "idProduct": "1",
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1"
+    },
+    {
+      "id": "a14e",
+      "idProduct": "4",
+      "uid": "48O3JZY1ztcFuucKVCfMIQJPu1u1"
+    }
+  ]
 }

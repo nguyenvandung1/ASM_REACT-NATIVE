@@ -4,57 +4,84 @@ import { COLORS, SIZES } from '../../constants/theme';
 import { Dots } from 'react-native-dots'
 import { Iconify } from 'react-native-iconify'
 import { ButtonCustomer } from '../../components';
-import { useFavoriteProducts } from '../../context/Favorite.context';
+import { useFavoriteProducts, useUserLogin } from '../../context/Favorite.context';
+import { addProductFavorite, deleteProductFavorite, getListFavorite } from '../../../db/script/API_APP';
 
 
 
 export default function Product_screen({ route, navigation }) {
   const product = route.params.data
+  const { userLogin, setUserLogin } = useUserLogin();
   const { favoriteProducts, setFavoriteProducts } = useFavoriteProducts();
+  const [listIdFavorite, setListIdFavorite] = useState([]);
+  const [favorite, setFavorite] = useState();
 
   const findProduct = () => {
-    const find = favoriteProducts.findIndex((item) => item.id == product.id);
-    const check = find != -1 ? true : false;
+    const find = listIdFavorite.findIndex((item) => item.idProduct === product.id && item.uid === userLogin.id);
+    const check = find !== -1;
     const kq = {
-      vt: find,
-      check: check
+      check: check,
+      vt: find
     }
+    // console.log(listIdFavorite);
+    // console.log("\nProductID: " + product.id + "\nUserID: " + userLogin.id);
+    // console.log("Tìm thấy không: " + check);
     return kq;
   }
+  const getList = async () => {
+    try {
+      const response = await getListFavorite(userLogin.id);
+      setListIdFavorite([...response]);
+      const kq = findProduct();
 
-  const [favorite, setFavorite] = useState(() => {
-    const kq = findProduct()
-    return kq.check;
-  })
+      setFavorite(kq.check)
+    } catch (error) {
+      console.log("lỗi: " + error);
+    }
+  };
+  useEffect(() => {
+    
+    getList();
+  }, []);
+
+
 
   useEffect(() => {
-    const kq = findProduct()
-    setFavorite(kq.check)
-    // console.log(kq.vt);
-    // console.log(favoriteProducts.length);
-  }, [favoriteProducts])
+    const kq = findProduct();
+    setFavorite(kq.check);
+  }, [listIdFavorite])
 
-
-  const deleteAndAddProduct = () => {
-    if (favoriteProducts.length == 0) {
-      const list = [product];
-      let myFavorite = {
-
+  const deleteAndAddProduct = async () => {
+    const findVT = findProduct();
+    const productFavoriteNew = {
+      idProduct: product.id,
+      uid: userLogin.id
+    }
+    if (listIdFavorite.length === 0) {
+      try {
+        await addProductFavorite(productFavoriteNew);
+      } catch (error) {
+        console.log(error);
       }
-      setFavoriteProducts([...list]);
+    } else if (!findVT.check) {
+      try {
+        const response = await addProductFavorite(productFavoriteNew);
+        getList();
+      } catch (error) {
+        console.log("Lỗi add: "+ error);
+      }
     } else {
-      const viTri = findProduct();
-      if (viTri.vt == -1) {
-        setFavoriteProducts([...favoriteProducts, product]);
-      } else{
-        
-        const lits = favoriteProducts.filter(
-          (item, i) => i !== viTri.vt
-        );
-        setFavoriteProducts([...lits])
+      try {
+        const response = await deleteProductFavorite(listIdFavorite[findVT.vt].id);
+        console.log(listIdFavorite[findVT.vt].id);
+        console.log(response);
+        getList();
+      } catch (error) {
+        console.log("Lỗi delete: "+error);
       }
     }
   }
+
 
 
 
@@ -72,12 +99,12 @@ export default function Product_screen({ route, navigation }) {
 
 
 
-  const renderImg = (img)=>{
-    if(typeof img === 'string'){
-      return <Image source={{uri: img}} style={{ objectFit: 'cover', width: SIZES.width, height: 450}} />
-    } else{
+  const renderImg = (img) => {
+    if (typeof img === 'string') {
+      return <Image source={{ uri: img }} style={{ objectFit: 'cover', width: SIZES.width, height: 450 }} />
+    } else {
       return (
-        <Image source={img} style={{ objectFit: 'cover', width: SIZES.width, height: 450}} />
+        <Image source={img} style={{ objectFit: 'cover', width: SIZES.width, height: 450 }} />
       )
     }
   }

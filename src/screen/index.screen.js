@@ -10,6 +10,9 @@ import Profile_screen from "./user/ProfileUser.screen";
 import SettingUser_screen from "./user/SettingUser.screen";
 import CreateItemUser_screen from "./user/CreateItemUser.screen";
 import MylistingUser_screen from "./user/MylistingUser.screen";
+import UpdateItemUser_screen from "./user/UpdateItemUser.screen";
+import ForgotPass_screen from "./welcome/ForgotPass.screen";
+
 export {
     Signin_screen,
     Signup_screen,
@@ -22,5 +25,7 @@ export {
     SettingUser_screen,
     CreateItemUser_screen,
     MylistingUser_screen,
+    UpdateItemUser_screen,
+    ForgotPass_screen
 
 }

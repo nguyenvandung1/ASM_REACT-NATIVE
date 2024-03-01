@@ -8,7 +8,7 @@ import { COLORS } from '../../constants/theme'
 import CheckBox_Customer from '../../components/checkBox.components'
 import { useAuth, useFavoriteProducts } from '../../context/Favorite.context'
 import { FIREBASE_AUTH } from '../../../auth/FirebaseConfig'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification} from 'firebase/auth'
 
 export default function Signup_screen({ navigation }) {
   const { listAccount, setListAccount } = useAuth();
@@ -102,6 +102,7 @@ export default function Signup_screen({ navigation }) {
   const singup = async () => {
     const validation = validateForm();
     if (!validation) {
+      
       return;
     }
 
@@ -111,6 +112,13 @@ export default function Signup_screen({ navigation }) {
       await updateProfile(response.user, {
         displayName: name
       })
+      await sendEmailVerification(response.user);
+      Alert.alert("Thông báo xác thực", "Vui lòng kiểm tra email xác thực!", [
+        {
+          text: 'OK',
+          style: 'cancel'
+        }
+      ])
     } catch (error) {
       console.log("Lỗi: " + error);
       if (error.code === 'auth/email-already-in-use') {

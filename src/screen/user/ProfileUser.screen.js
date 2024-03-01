@@ -1,11 +1,37 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { COLORS, SIZES } from '../../constants/theme'
 import { Iconify } from 'react-native-iconify'
+import { CommonActions } from '@react-navigation/native';
 
 import { ButtonCustomer } from '../../components/index'
 
-export default function Profile_screen({navigation}) {
+export default function Profile_screen({ navigation }) {
+
+  const logOut = () => {
+    Alert.alert("LogOut", "Bạn có muốn đăng xuất!",[
+      {
+       text: 'Cancel',
+       style: 'cancel'
+      },
+      {
+        text: "OK",
+        onPress: () => {
+          // , params: { reset: true }
+          // navigation.navigate('welcome', {screen: 'singin'})
+          
+          navigation.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [{ name: 'welcome', params: { screen: 'singin' } }],
+            })
+          );
+        }
+      }
+    ])
+
+  }
+
   return (
     <View style={{ flex: 1, alignItems: 'center' }}>
       <View style={{ width: '90%', height: '100%' }}>
@@ -13,7 +39,7 @@ export default function Profile_screen({navigation}) {
         <View style={{ width: '100%', height: '10%', justifyContent: 'center', alignItems: 'center' }}>
 
           <Text style={[st.text]}>Profile</Text>
-          <TouchableOpacity style={{ position: 'absolute', right: 0 }}>
+          <TouchableOpacity style={{ position: 'absolute', right: 0 }} onPress={() => { logOut() }}>
             <Iconify icon='ion:log-out-outline' size={24} color={COLORS.royalBlue} />
           </TouchableOpacity>
         </View>
@@ -24,7 +50,7 @@ export default function Profile_screen({navigation}) {
         </View>
 
         <View style={{ width: '100%', height: '35%', marginTop: '10%', justifyContent: 'space-around' }}>
-          <TouchableOpacity style={[st.item, st.shadow]} onPress={()=>{navigation.navigate('myListting')}}>
+          <TouchableOpacity style={[st.item, st.shadow]} onPress={() => { navigation.navigate('myListting') }}>
             <View>
               <Text style={[st.titleIitems]}>
                 My Listings
@@ -39,7 +65,7 @@ export default function Profile_screen({navigation}) {
 
           </TouchableOpacity>
 
-          <TouchableOpacity style={[st.item, st.shadow]} onPress={()=>{navigation.navigate('setting')}}>
+          <TouchableOpacity style={[st.item, st.shadow]} onPress={() => { navigation.navigate('setting') }}>
             <View>
               <Text style={[st.titleIitems]}>
                 Settings
@@ -55,8 +81,8 @@ export default function Profile_screen({navigation}) {
           </TouchableOpacity>
         </View>
 
-        <View style={{width: '100%', height: '9%', position: 'absolute', bottom: 20,}}>
-          <ButtonCustomer lable={'Add a new listing'} color={'white'} w={100} h={100} bg={COLORS.royalBlue} onPress={()=>{navigation.navigate('create')}}/>
+        <View style={{ width: '100%', height: '9%', position: 'absolute', bottom: 20, }}>
+          <ButtonCustomer lable={'Add a new listing'} color={'white'} w={100} h={100} bg={COLORS.royalBlue} onPress={() => { navigation.navigate('create') }} />
         </View>
       </View>
     </View>
